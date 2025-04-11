@@ -1,0 +1,996 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Firecrackers Football Factory</title>
+    <link rel="apple-touch-icon" sizes="180x180" href="assets/firecrackers-logo.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/firecrackers-logo.png" />
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/firecrackers-logo.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" />
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700;900&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --club-gold: #c1ab58;
+        --club-blue: #0549a9;
+        --club-white: #ffffff;
+        --club-navy: #0D1B2A;
+      }
+      body {
+            font-family: 'Montserrat', sans-serif;
+            color: var(--navy);
+            overflow-x: hidden;
+        }
+
+        /* About Section Specific Styles */
+        #about {
+            padding: 80px 0;
+        }
+
+        .about-content p {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .about-content .lead {
+            font-size: 1.3rem;
+            font-weight: 600;
+            color: var(--navy);
+        }
+
+        @media (max-width: 992px) {
+            #about {
+                padding: 60px 0;
+            }
+
+            .about-content p {
+                font-size: 1rem;
+            }
+
+            .about-content .lead {
+                font-size: 1.2rem;
+            }
+        }
+
+
+      /* Club Background Colors */
+      .bg-club-gold {
+        background-color: var(--club-gold);
+      }
+
+      .bg-club-blue {
+        background-color: var(--club-blue);
+      }
+
+      .bg-club-white {
+        background-color: var(--club-white);
+      }
+
+      .bg-club-navy {
+        background-color: var(--club-navy);
+      }
+
+      /* Club Text Colors */
+      .text-club-gold {
+        color: var(--club-gold);
+      }
+
+      .text-club-blue {
+        color: var(--club-blue);
+      }
+
+      .text-club-navy {
+        color: var(--club-navy);
+      }
+
+      /* Main Styles */
+      body {
+        font-family: 'Montserrat', sans-serif;
+        color: var(--club-navy);
+      }
+
+      .navbar {
+        background-color: var(--club-navy) !important;
+      }
+
+      .btn-primary {
+        background-color: var(--club-blue);
+        border-color: var(--club-blue);
+      }
+
+      .btn-outline-primary {
+        color: var(--club-blue);
+        border-color: var(--club-blue);
+      }
+
+      .btn-outline-primary:hover {
+        background-color: var(--club-blue);
+        color: white;
+      }
+
+      .btn-gold {
+        background-color: var(--club-gold);
+        border-color: var(--club-gold);
+        color: var(--club-navy);
+        font-weight: 600;
+      }
+
+      .btn-gold:hover {
+        background-color: #b39a4a;
+        border-color: #b39a4a;
+      }
+
+      .hero-section {
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
+                    url('assets/team-training.jpg');
+        background-size: cover;
+        background-position: center;
+        min-height: 80vh;
+        color: white;
+      }
+
+      .section-title {
+        position: relative;
+        margin-bottom: 2rem;
+      }
+
+      .section-title:after {
+        content: '';
+        position: absolute;
+        bottom: -10px;
+        left: 0;
+        width: 80px;
+        height: 4px;
+        background: var(--club-gold);
+      }
+
+      .value-card {
+        border-left: 4px solid var(--club-gold);
+        transition: transform 0.3s;
+      }
+
+      .value-card:hover {
+        transform: translateY(-5px);
+      }
+
+      .program-card {
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.3s;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+      }
+
+      .program-card:hover {
+        transform: translateY(-10px);
+      }
+
+      .program-card .card-header {
+        background-color: var(--club-blue);
+        color: white;
+        padding: 1.5rem;
+      }
+
+      footer {
+        background-color: var(--club-navy);
+        color: white;
+      }
+
+      .testimonial-card {
+        background-color: var(--club-blue);
+        color: white;
+      }
+    </style>
+  </head>
+
+  <body>
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-dark sticky-top">
+          <div class="container">
+              <a class="navbar-brand d-flex align-items-center" href="#">
+                  <img src="assets/firecrackers-logo.png" class="logo me-2" alt="Firecrackers FC Logo" width="50" />
+                  <span class="fw-bold">Firecrackers Football Factory</span>
+              </a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav ms-auto">
+                      <li class="nav-item">
+                          <a class="nav-link active" href="#home">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#about">About</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#programs">Programs</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#values">Our Values</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#contact">Contact</a>
+                      </li>
+                      <li class="nav-item ms-lg-3">
+                          <a class="btn btn-gold" href="#join">Join Us</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+
+      <!-- Hero Section -->
+      <section id="home" class="hero-section d-flex align-items-center">
+          <div class="container text-center">
+              <h1 class="display-3 fw-bold mb-4">Developing the Next Generation of Football Talent</h1>
+              <p class="lead mb-5">A football accelerator model combining sports, education, and technology</p>
+              <div class="d-flex justify-content-center gap-3">
+                  <a href="#programs" class="btn btn-primary btn-lg px-4">Explore Programs</a>
+                  <a href="#join" class="btn btn-gold btn-lg px-4">Join Our Community</a>
+              </div>
+          </div>
+      </section>
+
+      <!-- About Section -->
+      <section id="about" class="py-5">
+          <div class="container">
+              <div class="row align-items-center">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                      <img src="assets/team-photo.png" class="img-fluid rounded shadow" alt="Firecrackers FC team photo" />
+                  </div>
+                  <div class="col-lg-6">
+                      <h2 class="section-title mb-4">About Firecrackers Football Factory</h2>
+                      <div class="about-content">
+                          <p class="lead mb-4">
+                              We're a football club and talent accelerator developing young footballers in Nigeria.
+                          </p>
+                          <p class="mb-4">
+                              Firecrackers FC is a dynamic and ambitious football accelerator established to reignite the spirit of sportsmanship, talent development, and community pride in Nigeria.
+                          </p>
+                          <p>
+                              Built on a foundation of passion, determination, and the pursuit of excellence, Firecrackers FC is more than just a football team—it's a movement that inspires and empowers
+                              local talent to reach their full potential.
+                          </p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Vision & Mission -->
+      <section class="py-5 bg-club-white">
+          <div class="container">
+              <div class="row">
+                  <div class="col-md-6 mb-4 mb-md-0">
+                      <div class="card h-100 border-0 shadow-sm">
+                          <div class="card-body p-4">
+                              <div class="d-flex align-items-center mb-3">
+                                  <div class="bg-club-navy p-3 rounded-circle me-3 text-white">
+                                      <i class="fas fa-eye fa-2x"></i>
+                                  </div>
+                                  <h3 class="mb-0">Our Vision</h3>
+                              </div>
+                              <p class="mb-0">
+                                  To be a beacon of opportunity, resilience, and success in Nigerian football by developing homegrown talents who shine on both local and global stages.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+                  <div class="col-md-6">
+                      <div class="card h-100 border-0 shadow-sm">
+                          <div class="card-body p-4">
+                              <div class="d-flex align-items-center mb-3">
+                                  <div class="bg-club-navy p-3 rounded-circle me-3 text-white">
+                                      <i class="fas fa-bullseye fa-2x"></i>
+                                  </div>
+                                  <h3 class="mb-0">Our Mission</h3>
+                              </div>
+                              <p class="mb-0">
+                                  To nurture and showcase football talents through professional training, mentorship, and competitive play. To bridge the gap between grassroots football and international
+                                  opportunities, creating pathways for athletes to excel in their careers.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Programs Section - Visual Redesign -->
+      <section id="programs" class="py-5 bg-light">
+          <div class="container">
+              <div class="text-center mb-5">
+                  <h2 class="section-title d-inline-block">The Firecrackers Pathway</h2>
+                  <p class="lead text-muted">Bridging Africa's "Valley of the Shadow of Death" for elite football talents (16-20)</p>
+              </div>
+
+              <div class="row g-4 mb-5">
+                  <!-- Process Visualization -->
+                  <div class="col-12">
+                      <div class="process-steps">
+                          <div class="step">
+                              <div class="step-icon bg-club-blue text-white">
+                                  <i class="fas fa-search"></i>
+                              </div>
+                              <h5>Identification</h5>
+                              <p>Finding Africa's top 1% of 1% talent</p>
+                          </div>
+                          <div class="step-arrow text-club-gold">
+                              <i class="fas fa-chevron-right"></i>
+                          </div>
+                          <div class="step">
+                              <div class="step-icon bg-club-blue text-white">
+                                  <i class="fas fa-user-tie"></i>
+                              </div>
+                              <h5>Grooming</h5>
+                              <p>Professional mindset & branding</p>
+                          </div>
+                          <div class="step-arrow text-club-gold">
+                              <i class="fas fa-chevron-right"></i>
+                          </div>
+                          <div class="step">
+                              <div class="step-icon bg-club-blue text-white">
+                                  <i class="fas fa-chart-line"></i>
+                              </div>
+                              <h5>Development</h5>
+                              <p>World-class training program</p>
+                          </div>
+                          <div class="step-arrow text-club-gold">
+                              <i class="fas fa-chevron-right"></i>
+                          </div>
+                          <div class="step">
+                              <div class="step-icon bg-club-blue text-white">
+                                  <i class="fas fa-globe-europe"></i>
+                              </div>
+                              <h5>Placement</h5>
+                              <p>Global club opportunities</p>
+                          </div>
+                          <div class="step-arrow text-club-gold">
+                              <i class="fas fa-chevron-right"></i>
+                          </div>
+                          <div class="step">
+                              <div class="step-icon bg-club-blue text-white">
+                                  <i class="fas fa-briefcase"></i>
+                              </div>
+                              <h5>Management</h5>
+                              <p>Career-long representation</p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+
+              <!-- Program Details -->
+              <div class="row g-4">
+                  <div class="col-lg-6">
+                      <div class="card border-0 shadow-sm h-100">
+                          <div class="card-header bg-club-blue text-white">
+                              <h3 class="mb-0">Program Features</h3>
+                          </div>
+                          <div class="card-body">
+                              <ul class="list-unstyled">
+                                  <li class="mb-3 d-flex">
+                                      <div class="me-3 text-club-gold">
+                                          <i class="fas fa-futbol fa-lg"></i>
+                                      </div>
+                                      <div>
+                                          <h5>Elite Training</h5>
+                                          <p class="mb-0 text-muted">Daily sessions with UEFA-licensed coaches and performance analytics</p>
+                                      </div>
+                                  </li>
+                                  <li class="mb-3 d-flex">
+                                      <div class="me-3 text-club-gold">
+                                          <i class="fas fa-trophy fa-lg"></i>
+                                      </div>
+                                      <div>
+                                          <h5>Showcase Opportunities</h5>
+                                          <p class="mb-0 text-muted">International tournaments in Europe and Middle East</p>
+                                      </div>
+                                  </li>
+                                  <li class="mb-3 d-flex">
+                                      <div class="me-3 text-club-gold">
+                                          <i class="fas fa-file-contract fa-lg"></i>
+                                      </div>
+                                      <div>
+                                          <h5>Professional Management</h5>
+                                          <p class="mb-0 text-muted">Contract negotiation and career guidance</p>
+                                      </div>
+                                  </li>
+                              </ul>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="card border-0 shadow-sm h-100">
+                          <div class="card-header bg-club-navy text-white">
+                              <h3 class="mb-0">Player Benefits</h3>
+                          </div>
+                          <div class="card-body">
+                              <div class="row g-3">
+                                  <div class="col-md-6">
+                                      <div class="benefit-card p-3 rounded">
+                                          <div class="d-flex align-items-center mb-2">
+                                              <div class="bg-club-gold p-2 rounded-circle me-2 text-white">
+                                                  <i class="fas fa-shield-alt"></i>
+                                              </div>
+                                              <h6 class="mb-0">Structured Pathway</h6>
+                                          </div>
+                                          <p class="small text-muted mb-0">Clear progression to professional football</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="benefit-card p-3 rounded">
+                                          <div class="d-flex align-items-center mb-2">
+                                              <div class="bg-club-gold p-2 rounded-circle me-2 text-white">
+                                                  <i class="fas fa-network-wired"></i>
+                                              </div>
+                                              <h6 class="mb-0">Global Network</h6>
+                                          </div>
+                                          <p class="small text-muted mb-0">Access to international scouts and clubs</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="benefit-card p-3 rounded">
+                                          <div class="d-flex align-items-center mb-2">
+                                              <div class="bg-club-gold p-2 rounded-circle me-2 text-white">
+                                                  <i class="fas fa-user-graduate"></i>
+                                              </div>
+                                              <h6 class="mb-0">Education</h6>
+                                          </div>
+                                          <p class="small text-muted mb-0">Academic support alongside training</p>
+                                      </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                      <div class="benefit-card p-3 rounded">
+                                          <div class="d-flex align-items-center mb-2">
+                                              <div class="bg-club-gold p-2 rounded-circle me-2 text-white">
+                                                  <i class="fas fa-medal"></i>
+                                              </div>
+                                              <h6 class="mb-0">Proven Success</h6>
+                                          </div>
+                                          <p class="small text-muted mb-0">Players already placed in Europe</p>
+                                      </div>
+                                  </div>
+                              </div>
+                          </div>
+                          <div class="card-footer bg-white border-top text-center py-4">
+                              <a href="#join" class="btn btn-gold btn-lg px-5">
+                                  <i class="fas fa-running me-2"></i> Start Your Journey
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <style>
+          /* Process Steps Style */
+          .process-steps {
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              flex-wrap: wrap;
+              gap: 1rem;
+          }
+
+          .step {
+              text-align: center;
+              flex: 0 0 150px;
+          }
+
+          .step-icon {
+              width: 60px;
+              height: 60px;
+              border-radius: 50%;
+              display: flex;
+              align-items: center;
+              justify-content: center;
+              margin: 0 auto 1rem;
+              font-size: 1.5rem;
+              box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+          }
+
+          .step h5 {
+              font-weight: 600;
+              margin-bottom: 0.5rem;
+              color: var(--club-navy);
+          }
+
+          .step p {
+              font-size: 0.9rem;
+              color: var(--club-navy);
+              opacity: 0.8;
+          }
+
+          .step-arrow {
+              font-size: 1.5rem;
+              opacity: 0.7;
+          }
+
+          /* Benefit Card Hover Effect */
+          .benefit-card {
+              transition: all 0.3s ease;
+              height: 100%;
+              background: rgba(255,255,255,0.9);
+              border: 1px solid rgba(0,0,0,0.05);
+          }
+
+              .benefit-card:hover {
+                  transform: translateY(-5px);
+                  box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+              }
+
+          @media (max-width: 768px) {
+              .process-steps {
+                  flex-direction: column;
+                  align-items: center;
+              }
+
+              .step-arrow {
+                  transform: rotate(90deg);
+                  margin: 0.5rem 0;
+              }
+
+              .step {
+                  flex: 0 0 auto;
+                  margin-bottom: 1rem;
+              }
+          }
+      </style>
+
+
+      <!-- Values Section -->
+      <section id="values" class="py-5 bg-club-white">
+          <div class="container">
+              <div class="text-center mb-5">
+                  <h2 class="section-title d-inline-block">Our Core Values</h2>
+                  <p class="lead">The foundation of everything we do</p>
+              </div>
+
+              <div class="row g-4">
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-star"></i>
+                              </div>
+                              <h4 class="mb-0">Excellence</h4>
+                          </div>
+                          <p>We strive for the highest standards in player development, training, and character building.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-users"></i>
+                              </div>
+                              <h4 class="mb-0">Community</h4>
+                          </div>
+                          <p>We believe in giving back and creating opportunities for underserved communities.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-lightbulb"></i>
+                              </div>
+                              <h4 class="mb-0">Innovation</h4>
+                          </div>
+                          <p>We combine traditional football development with modern technology and analytics.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-hand-holding-heart"></i>
+                              </div>
+                              <h4 class="mb-0">Integrity</h4>
+                          </div>
+                          <p>We operate with transparency, fairness, and ethical practices at all times.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-fist-raised"></i>
+                              </div>
+                              <h4 class="mb-0">Resilience</h4>
+                          </div>
+                          <p>We teach our players to overcome challenges and persist in the face of adversity.</p>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="value-card bg-white p-4 h-100 shadow-sm">
+                          <div class="d-flex align-items-center mb-3">
+                              <div class="bg-club-navy p-2 rounded-circle me-3 text-white">
+                                  <i class="fas fa-globe-africa"></i>
+                              </div>
+                              <h4 class="mb-0">Global Mindset</h4>
+                          </div>
+                          <p>We prepare players for international opportunities while maintaining local roots.</p>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Join Section -->
+      <section id="join" class="py-5">
+          <div class="container py-5">
+              <div class="row align-items-center">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                      <h2 class="section-title">Join the Firecrackers Family</h2>
+                      <p class="lead mb-4">Whether you're a player, supporter, or partner, there's a place for you in our community.</p>
+
+                      <div class="mb-5">
+                          <h4>For Players:</h4>
+                          <p class="mb-3">We hold trials throughout the year. Submit your information and we'll contact you about upcoming opportunities.</p>
+                          <a href="https://forms.gle/LrPRuRZMms4NUJCL9" class="btn btn-primary" target="_blank">Player Application</a>
+                      </div>
+
+                      <div>
+                          <h4>For Supporters:</h4>
+                          <p class="mb-3">Join our FireBrigades community to stay updated and support our mission.</p>
+                          <a href="https://chat.whatsapp.com/Gs4hTwLanO3Gsajx6B30rV" class="btn btn-gold" target="_blank">
+                              <i class="fab fa-whatsapp me-2"></i> Join WhatsApp Group
+                          </a>
+                      </div>
+                  </div>
+                  <div class="col-lg-6">
+                      <div class="card border-0 shadow">
+                          <div class="card-body p-4 p-lg-5">
+                              <h3 class="mb-4">Partner With Us</h3>
+                              <p class="mb-4">We're looking for corporate partners, equipment donors, and technical advisors to help scale our impact.</p>
+
+                              <!-- Updated Partner Form -->
+                              <form action="https://formspree.io/f/mvgkvgww" method="POST" id="partner-form">
+                                  <div class="mb-3">
+                                      <label for="name" class="form-label">Name</label>
+                                      <input type="text" class="form-control" name="name" required>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="email" class="form-label">Email</label>
+                                      <input type="email" class="form-control" name="email" required>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="interest" class="form-label">Area of Interest</label>
+                                      <select class="form-select" name="interest" required>
+                                          <option value="" disabled selected>Select an option</option>
+                                          <option>Corporate Partnership</option>
+                                          <option>Equipment Donation</option>
+                                          <option>Volunteer/Coaching</option>
+                                          <option>Scouting Partnership</option>
+                                          <option>Other</option>
+                                      </select>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="message" class="form-label">Message</label>
+                                      <textarea class="form-control" name="message" rows="4" required></textarea>
+                                  </div>
+                                  <input type="hidden" name="_subject" value="New Partnership Inquiry - Firecrackers FC">
+                                  <input type="text" name="_gotcha" style="display:none">
+                                  <button type="submit" class="btn btn-primary w-100">Submit</button>
+                                  <div id="partner-form-status" class="mt-3 text-center"></div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Testimonials -->
+      <section class="py-5 bg-club-blue text-white">
+          <div class="container">
+              <div class="text-center mb-5">
+                  <h2 class="section-title d-inline-block">Success Stories</h2>
+                  <p class="lead">Hear from our players and partners</p>
+              </div>
+
+              <div class="row g-4">
+                  <div class="col-md-4">
+                      <div class="card h-100 border-0 testimonial-card">
+                          <div class="card-body p-4">
+                              <div class="mb-3">
+                                  <i class="fas fa-quote-left fa-2x opacity-25"></i>
+                              </div>
+                              <p class="card-text">Firecrackers gave me the platform I needed to get signed by a professional club in Europe.</p>
+                              <div class="d-flex align-items-center mt-4">
+                                  <img src="assets/Player1.png" class="rounded-circle me-3" width="50" alt="Player testimonial">
+                                  <div>
+                                      <h6 class="mb-0">Ayuba O.</h6>
+                                      <small class="text-light">Professional Player, Croatia</small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="card h-100 border-0 testimonial-card">
+                          <div class="card-body p-4">
+                              <div class="mb-3">
+                                  <i class="fas fa-quote-left fa-2x opacity-25"></i>
+                              </div>
+                              <p class="card-text">This club gave me a platform to showcase my skills and grow in confidence. It’s something special.</p>
+                              <div class="d-flex align-items-center mt-4">
+                                  <img src="assets/Player2.png" class="rounded-circle me-3" width="50" alt="Sponsor testimonial">
+                                  <div>
+                                      <h6 class="mb-0">Abasiekeme I.</h6>
+                                      <small class="text-light">Professional Player, Greece</small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-md-4">
+                      <div class="card h-100 border-0 testimonial-card">
+                          <div class="card-body p-4">
+                              <div class="mb-3">
+                                  <i class="fas fa-quote-left fa-2x opacity-25"></i>
+                              </div>
+                              <p class="card-text">I'm proud to be part of an organization that nurtures not just athletes, but well-rounded individuals.</p>
+                              <div class="d-flex align-items-center mt-4">
+                                  <img src="assets/sponsor.png" class="rounded-circle me-3" width="50" alt="Parent testimonial">
+                                  <div>
+                                      <h6 class="mb-0">Olanrewaju Vigo</h6>
+                                      <small class="text-light">Board Member</small>
+                                  </div>
+                              </div>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section id="contact" class="py-5 bg-light">
+          <div class="container py-5">
+              <div class="row">
+                  <div class="col-lg-6 mb-4 mb-lg-0">
+                      <h2 class="section-title">Contact Us</h2>
+                      <p class="lead mb-4">Get in touch with our team</p>
+
+                      <div class="mb-5">
+                          <div class="d-flex align-items-start mb-4">
+                              <div class="contact-icon me-3">
+                                  <i class="fas fa-map-marker-alt"></i>
+                              </div>
+                              <div>
+                                  <h5 class="mb-1">Location</h5>
+                                  <p class="mb-0">Lagos, Nigeria</p>
+                              </div>
+                          </div>
+
+                          <div class="d-flex align-items-start mb-4">
+                              <div class="contact-icon me-3">
+                                  <i class="fas fa-envelope"></i>
+                              </div>
+                              <div>
+                                  <h5 class="mb-1">Email</h5>
+                                  <p class="mb-0">firecrackerssports@gmail.com</p>
+                              </div>
+                          </div>
+
+                          <div class="d-flex align-items-start mb-4">
+                              <div class="contact-icon me-3">
+                                  <i class="fas fa-phone-alt"></i>
+                              </div>
+                              <div>
+                                  <h5 class="mb-1">Phone</h5>
+                                  <p class="mb-0">+234 813 959 7690</p>
+                              </div>
+                          </div>
+                      </div>
+
+                      <div>
+                          <h5 class="mb-3">Follow Us</h5>
+                          <div class="d-flex gap-3">
+                              <a href="https://x.com/FirecrackersFc" class="social-icon text-dark">
+                                  <i class="fab fa-twitter"></i>
+                              </a>
+                              <a href="https://www.instagram.com/firecrackers_official" class="social-icon text-dark">
+                                  <i class="fab fa-instagram"></i>
+                              </a>
+                              <a href="https://www.facebook.com/firecrackersfc" class="social-icon text-dark">
+                                  <i class="fab fa-facebook-f"></i>
+                              </a>
+                              <a href="https://chat.whatsapp.com/Gs4hTwLanO3Gsajx6B30rV" class="social-icon text-dark">
+                                  <i class="fab fa-whatsapp"></i>
+                              </a>
+                          </div>
+                      </div>
+                  </div>
+
+                  <div class="col-lg-6">
+                      <div class="card border-0 shadow">
+                          <div class="card-body p-4 p-lg-5">
+                              <h3 class="mb-4">Send Us a Message</h3>
+
+                              <!-- Updated Contact Form -->
+                              <form action="https://formspree.io/f/mvgkvgww" method="POST" id="contact-form">
+                                  <div class="mb-3">
+                                      <label for="contact-name" class="form-label">Name</label>
+                                      <input type="text" class="form-control" name="name" required>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="contact-email" class="form-label">Email</label>
+                                      <input type="email" class="form-control" name="email" required>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="contact-subject" class="form-label">Subject</label>
+                                      <input type="text" class="form-control" name="_subject" required>
+                                  </div>
+                                  <div class="mb-3">
+                                      <label for="contact-message" class="form-label">Message</label>
+                                      <textarea class="form-control" name="message" rows="4" required></textarea>
+                                  </div>
+                                  <input type="text" name="_gotcha" style="display:none">
+                                  <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                                  <div id="contact-form-status" class="mt-3 text-center"></div>
+                              </form>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </section>
+
+      <!-- Footer -->
+      <footer class="py-5">
+          <div class="container">
+              <div class="row">
+                  <div class="col-lg-4 mb-4 mb-lg-0">
+                      <img src="assets/firecrackers-logo.png" class="mb-3" width="100" alt="Firecrackers FC Logo">
+                      <p>Firecrackers Football Factory is a talent accelerator combining sports, education, and technology to develop the next generation of Nigerian football stars.</p>
+                  </div>
+
+                  <div class="col-lg-2 col-md-6 mb-4 mb-md-0">
+                      <h5>Quick Links</h5>
+                      <ul class="list-unstyled">
+                          <li class="mb-2"><a href="#home" class="text-decoration-none text-white">Home</a></li>
+                          <li class="mb-2"><a href="#about" class="text-decoration-none text-white">About</a></li>
+                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Programs</a></li>
+                          <li class="mb-2"><a href="#values" class="text-decoration-none text-white">Our Values</a></li>
+                          <li class="mb-2"><a href="#contact" class="text-decoration-none text-white">Contact</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+                      <h5>Programs</h5>
+                      <ul class="list-unstyled">
+                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Elite Academy</a></li>
+                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Development Squad</a></li>
+                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Community Program</a></li>
+                          <li class="mb-2"><a href="#join" class="text-decoration-none text-white">Player Trials</a></li>
+                      </ul>
+                  </div>
+
+                  <div class="col-lg-3">
+                      <h5>Contact Info</h5>
+                      <address>
+                          <p class="mb-2"><i class="fas fa-map-marker-alt me-2 text-club-gold"></i> Lagos, Nigeria</p>
+                          <p class="mb-2"><i class="fas fa-phone-alt me-2 text-club-gold"></i> +234 813 959 7690</p>
+                          <p class="mb-2"><i class="fas fa-envelope me-2 text-club-gold"></i> firecrackerssports@gmail.com</p>
+                      </address>
+                  </div>
+              </div>
+
+              <hr class="my-4 bg-club-gold">
+
+              <div class="row align-items-center">
+                  <div class="col-md-6 text-center text-md-start">
+                      <p class="mb-0">&copy; 2025 Firecrackers Football Factory. All rights reserved.</p>
+                  </div>
+                  <div class="col-md-6 text-center text-md-end">
+                      <div class="d-flex justify-content-center justify-content-md-end gap-3">
+                          <a href="https://x.com/FirecrackersFc" class="text-white">
+                              <i class="fab fa-twitter"></i>
+                          </a>
+                          <a href="https://www.instagram.com/firecrackers_official" class="text-white">
+                              <i class="fab fa-instagram"></i>
+                          </a>
+                          <a href="https://www.facebook.com/firecrackersfc" class="text-white">
+                              <i class="fab fa-facebook"></i>
+                          </a>
+                          <a href="https://chat.whatsapp.com/Gs4hTwLanO3Gsajx6B30rV" class="text-white">
+                              <i class="fab fa-whatsapp"></i>
+                          </a>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </footer>
+
+      <!-- Bootstrap JS -->
+      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"></script>
+      <!-- Custom JS -->
+      <script>
+          // Partner Form Submission Handler
+          const partnerForm = document.getElementById('partner-form');
+          partnerForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const submitBtn = partnerForm.querySelector('button[type="submit"]');
+              const status = document.getElementById('partner-form-status');
+
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+
+              try {
+                  const response = await fetch(partnerForm.action, {
+                      method: 'POST',
+                      body: new FormData(partnerForm),
+                      headers: {
+                          'Accept': 'application/json'
+                      }
+                  });
+
+                  if (response.ok) {
+                      status.innerHTML = '<div class="alert alert-success">Thanks for your interest! We\'ll contact you soon.</div>';
+                      partnerForm.reset();
+                  } else {
+                      status.innerHTML = '<div class="alert alert-danger">Oops! There was a problem. Please try again.</div>';
+                  }
+              } catch (error) {
+                  status.innerHTML = '<div class="alert alert-danger">Network error. Please try again later.</div>';
+              } finally {
+                  submitBtn.disabled = false;
+                  submitBtn.innerHTML = 'Submit';
+              }
+          });
+
+          // Contact Form Submission Handler
+          const contactForm = document.getElementById('contact-form');
+          contactForm.addEventListener('submit', async (e) => {
+              e.preventDefault();
+              const submitBtn = contactForm.querySelector('button[type="submit"]');
+              const status = document.getElementById('contact-form-status');
+
+              submitBtn.disabled = true;
+              submitBtn.innerHTML = '<span class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span> Sending...';
+
+              try {
+                  const response = await fetch(contactForm.action, {
+                      method: 'POST',
+                      body: new FormData(contactForm),
+                      headers: {
+                          'Accept': 'application/json'
+                      }
+                  });
+
+                  if (response.ok) {
+                      status.innerHTML = '<div class="alert alert-success">Message sent successfully! We\'ll respond soon.</div>';
+                      contactForm.reset();
+                  } else {
+                      status.innerHTML = '<div class="alert alert-danger">Failed to send message. Please try again.</div>';
+                  }
+              } catch (error) {
+                  status.innerHTML = '<div class="alert alert-danger">Network error. Please try again later.</div>';
+              } finally {
+                  submitBtn.disabled = false;
+                  submitBtn.innerHTML = 'Send Message';
+              }
+          });
+      </script>
+
+  </body>
+</html>
