@@ -129,8 +129,7 @@
       }
 
       .hero-section {
-        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)),
-                    url('assets/team-training.jpg');
+        background: none;
         background-size: cover;
         background-position: center;
         min-height: 80vh;
@@ -187,8 +186,29 @@
         background-color: var(--club-blue);
         color: white;
       }
+        .video-bg {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          z-index: -2;
+        }
+
+        .overlay {
+          position: absolute;
+          top: 0; left: 0;
+          width: 100%;
+          height: 100%;
+          background: rgba(0, 0, 0, 0.65); /* Adjust darkness here */
+          z-index: -1;
+        }
+
+
     </style>
-  </head>
+
+
+</head>
 
   <body>
       <!-- Navigation -->
@@ -210,7 +230,7 @@
                           <a class="nav-link" href="#about">About</a>
                       </li>
                       <li class="nav-item">
-                          <a class="nav-link" href="#programs">Programs</a>
+                          <a class="nav-link" href="#program">Program</a>
                       </li>
                       <li class="nav-item">
                           <a class="nav-link" href="#values">Our Values</a>
@@ -226,17 +246,99 @@
           </div>
       </nav>
 
-      <!-- Hero Section -->
-      <section id="home" class="hero-section d-flex align-items-center">
-          <div class="container text-center">
-              <h1 class="display-3 fw-bold mb-4">Developing the Next Generation of Football Talent</h1>
-              <p class="lead mb-5">A football accelerator model combining sports, education, and technology</p>
-              <div class="d-flex justify-content-center gap-3">
-                  <a href="#programs" class="btn btn-primary btn-lg px-4">Explore Programs</a>
-                  <a href="#join" class="btn btn-gold btn-lg px-4">Join Our Community</a>
+      <section id="home" class="hero-section position-relative text-white d-flex align-items-center justify-content-center">
+          <!-- 🔁 Video Background -->
+          <video autoplay muted loop playsinline class="video-bg">
+              <source src="assets/Firecrackers FC Logo.mp4" type="video/mp4" />
+              Your browser does not support the video tag.
+          </video>
+
+          <!-- 🌑 Dark Overlay -->
+          <div class="overlay"></div>
+
+          <!-- 🚀 Hero Content -->
+          <div class="container text-center content-wrapper position-relative z-2 px-4">
+              <h1 class="display-3 fw-bold animate-fade-in mb-4">
+                  Developing the Next<br />
+                  <span class="text-club-gold">Generation</span> of Football Talent
+              </h1>
+              <p class="lead animate-fade-in animation-delay-300 mb-5">
+                  A football accelerator combining <strong>sports</strong>, <strong>education</strong>, and <strong>technology</strong>
+              </p>
+              <div class="hero-buttons animate-fade-in animation-delay-500 d-flex flex-column flex-sm-row justify-content-center gap-3">
+                  <a href="#program" class="btn btn-primary btn-lg px-5 py-3">Explore Programs</a>
+                  <a href="#join" class="btn btn-gold btn-lg px-5 py-3">Join Our Community</a>
               </div>
           </div>
       </section>
+
+
+
+
+      <style>
+          @keyframes fadeIn {
+              from {
+                opacity: 0;
+                transform: translateY(20px);
+              }
+              to {
+                opacity: 1;
+                transform: translateY(0);
+              }
+            }
+
+            @keyframes float {
+              0%, 100% {
+                transform: translateY(0) rotate(0deg);
+              }
+              50% {
+                transform: translateY(-20px) rotate(5deg);
+              }
+            }
+
+            @keyframes pulseSlow {
+              0%, 100% {
+                opacity: 0.05;
+              }
+              50% {
+                opacity: 0.15;
+              }
+            }
+
+            /* Animation Classes */
+            .animate-fade-in {
+              animation: fadeIn 1s ease-out forwards;
+              opacity: 0;
+            }
+
+            .animate-float {
+              animation: float 6s ease-in-out infinite;
+            }
+
+            .animate-pulse-slow {
+              animation: pulseSlow 8s ease-in-out infinite;
+            }
+
+            /* Animation Delays */
+            .animation-delay-300 {
+              animation-delay: 0.3s;
+            }
+
+            .animation-delay-500 {
+              animation-delay: 0.5s;
+            }
+
+            .animation-delay-700 {
+              animation-delay: 0.7s;
+            }
+
+            /* Gradient Background */
+            .bg-gradient-radial {
+              background: radial-gradient(circle, var(--tw-gradient-from), var(--tw-gradient-to);
+            }
+       </style>
+
+      
 
       <!-- About Section -->
       <section id="about" class="py-5">
@@ -278,7 +380,7 @@
                                   <h3 class="mb-0">Our Vision</h3>
                               </div>
                               <p class="mb-0">
-                                  To be a beacon of opportunity, resilience, and success in Nigerian football by developing homegrown talents who shine on both local and global stages.
+                                  To become Africa’s premier talent bridge – transforming the continent’s top 1% of football potential into dominant global professionals
                               </p>
                           </div>
                       </div>
@@ -293,8 +395,7 @@
                                   <h3 class="mb-0">Our Mission</h3>
                               </div>
                               <p class="mb-0">
-                                  To nurture and showcase football talents through professional training, mentorship, and competitive play. To bridge the gap between grassroots football and international
-                                  opportunities, creating pathways for athletes to excel in their careers.
+                                  We rescue elite African talents from the ‘valley of the shadow of death’ through our 5-phase accelerator ensuring no exceptional player falls through the cracks.
                               </p>
                           </div>
                       </div>
@@ -304,7 +405,7 @@
       </section>
 
       <!-- Programs Section - Visual Redesign -->
-      <section id="programs" class="py-5 bg-light">
+      <section id="program" class="py-5 bg-light">
           <div class="container">
               <div class="text-center mb-5">
                   <h2 class="section-title d-inline-block">The Firecrackers Pathway</h2>
@@ -380,7 +481,7 @@
                                           <i class="fas fa-futbol fa-lg"></i>
                                       </div>
                                       <div>
-                                          <h5>Elite Training</h5>
+                                          <h6>Elite Training</h6>
                                           <p class="mb-0 text-muted">Daily sessions with UEFA-licensed coaches and performance analytics</p>
                                       </div>
                                   </li>
@@ -389,7 +490,7 @@
                                           <i class="fas fa-trophy fa-lg"></i>
                                       </div>
                                       <div>
-                                          <h5>Showcase Opportunities</h5>
+                                          <h6>Showcase Opportunities</h6>
                                           <p class="mb-0 text-muted">International tournaments in Europe and Middle East</p>
                                       </div>
                                   </li>
@@ -398,7 +499,7 @@
                                           <i class="fas fa-file-contract fa-lg"></i>
                                       </div>
                                       <div>
-                                          <h5>Professional Management</h5>
+                                          <h6>Professional Management</h6>
                                           <p class="mb-0 text-muted">Contract negotiation and career guidance</p>
                                       </div>
                                   </li>
@@ -636,8 +737,8 @@
           <div class="container py-5">
               <div class="row align-items-center">
                   <div class="col-lg-6 mb-4 mb-lg-0">
-                      <h2 class="section-title">Join the Firecrackers Family</h2>
-                      <p class="lead mb-4">Whether you're a player, supporter, or partner, there's a place for you in our community.</p>
+                      <h3 class="section-title">Join the Firecrackers Family</h3>
+                      <p class="mb-3"  >Whether you're a player, supporter, or partner, there's a place for you in our community.</p>
 
                       <div class="mb-5">
                           <h4>For Players:</h4>
@@ -869,18 +970,16 @@
                       <ul class="list-unstyled">
                           <li class="mb-2"><a href="#home" class="text-decoration-none text-white">Home</a></li>
                           <li class="mb-2"><a href="#about" class="text-decoration-none text-white">About</a></li>
-                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Programs</a></li>
+                          <li class="mb-2"><a href="#program" class="text-decoration-none text-white">Program</a></li>
                           <li class="mb-2"><a href="#values" class="text-decoration-none text-white">Our Values</a></li>
                           <li class="mb-2"><a href="#contact" class="text-decoration-none text-white">Contact</a></li>
                       </ul>
                   </div>
 
                   <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
-                      <h5>Programs</h5>
+                      <h5>Program</h5>
                       <ul class="list-unstyled">
-                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Elite Academy</a></li>
-                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Development Squad</a></li>
-                          <li class="mb-2"><a href="#programs" class="text-decoration-none text-white">Community Program</a></li>
+                          <li class="mb-2"><a href="#program" class="text-decoration-none text-white">The Firecrackers Pathway</a></li>
                           <li class="mb-2"><a href="#join" class="text-decoration-none text-white">Player Trials</a></li>
                       </ul>
                   </div>
@@ -992,5 +1091,21 @@
           });
       </script>
 
-  </body>
+  
+<script>
+  const faders = document.querySelectorAll('.animate-fade-in');
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add('appear');
+      observer.unobserve(entry.target);
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  });
+  faders.forEach(fader => appearOnScroll.observe(fader));
+</script>
+
+</body>
 </html>
